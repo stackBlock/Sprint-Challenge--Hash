@@ -1,10 +1,22 @@
 def intersection(arrays):
 
+    arrays = sorted(arrays, key=lambda x: len(x))
+    ans = []
+    dic = {}
+    for a in arrays[0]:
+        dic[a] = 1
+    for ar in arrays[1:]:
+        for a in ar:
+            if a in dic:
+                dic[a] += 1
+    ans = [n for n in dic if dic[n] == len(arrays)]
+
+
     """
     YOUR CODE HERE
     """
-
-    return result
+    
+    return ans
 
 
 if __name__ == "__main__":
