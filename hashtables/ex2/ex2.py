@@ -7,8 +7,19 @@ class Ticket:
 
 def reconstruct_trip(tickets, length):
     
+    dic = {}
+    trip = [None] * (len(tickets))
+    for t in tickets:
+        if t.source == "NONE":
+            trip[0] = t.destination
+        dic[t.source] = t.destination
+
+    for y in range(1, len(tickets)):
+        trip[y] = dic[trip[y-1]]
+        
+
     """
     YOUR CODE HERE
     """
 
-    return route
+    return trip
